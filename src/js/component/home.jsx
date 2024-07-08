@@ -1,24 +1,44 @@
-import React from "react";
-
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, {useState} from "react";
+import Input from "./input";
+import List from "./list";
 
 //create your first component
 const Home = () => {
+
+	const [task, setTask] = useState("");
+	const [listTask, setListTask] = useState([])
+
+	const addTask = (e) => {
+		setTask(e.target.value);
+		
+	}
+
+	const addListTask = (e) => {
+		if(e.keyCode === 13 && e.key !== "") {
+			setListTask(listTask.concat(e.target.value))
+		}
+		
+	}
+	console.log(listTask);
+
+
+
+
+
 	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div className="container">
+			<div className="card w-50 mx-auto mt-5">
+				<Input onChange={addTask} value={task} onKeyDown={addListTask}/>
+				
+
+
+				<List taskAdded={listTask}/>
+				
+
+				<div className="card-footer">
+    				Card footer
+  				</div>
+			</div>
 		</div>
 	);
 };
