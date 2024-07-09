@@ -16,6 +16,7 @@ const Home = () => {
 	const addListTask = (e) => {
 		if(e.keyCode === 13 && e.key !== "") {
 			setListTask(listTask.concat(e.target.value))
+			setTask("");
 		}
 		
 	}
