@@ -20,7 +20,9 @@ const Home = () => {
 		}
 		
 	}
+
 	console.log(listTask);
+
 
 
 
@@ -32,8 +34,8 @@ const Home = () => {
 				<Input onChange={addTask} value={task} onKeyDown={addListTask}/>
 				
 
+				<List taskAdded={listTask} setTask={setListTask}/>
 
-				<List taskAdded={listTask}/>
 				
 
 				<div className="card-footer">
